@@ -508,3 +508,31 @@ header .navbar-nav nav div a:hover {
   transition: transform 0.3s ease;
   opacity: 0.8;
 }
+
+.form-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 600px;
+  margin: 40px auto;
+}
+
+.btn {
+  background-color: #eee;
+    border: 1px solid #ddd;
+    color: #333;
+    font-size: 1em;
+    font-family: inherit;
+    padding: 10px 15px;
+    border-radius: 0;
+}
+
+.form-contact input, .form-contact textarea {
+  padding: 10px;
+  font-size: 1em;
+  border-radius: 0;
+  font-family: inherit;
+  outline: none;
+  border: none;
+  resize: none;
+}
