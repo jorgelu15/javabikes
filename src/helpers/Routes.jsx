@@ -3,7 +3,10 @@ const routes = {
     bicicletas: "/bicicletas",
     nosotros: "/nosotros",
     contacto: "/contacto",
-    faq: "/faq"
+    faq: "/faq",
+    producto: "/producto/:id",
+    administracion: "/administracion/:id",
+    login: "/login"
 }
 
 export  {routes}

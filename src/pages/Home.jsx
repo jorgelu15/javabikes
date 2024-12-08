@@ -1,5 +1,5 @@
 import Header from "../components/layout/Header";
-import VideoBanner from "../assets/video.mp4";
+import presentation2 from "../assets/presentation2.mp4";
 import bici1 from "./../assets/bici1.png";
 import Accordion from '@mui/material/Accordion';
 import AccordionActions from '@mui/material/AccordionActions';
@@ -19,11 +19,11 @@ const Home = () => {
             <Header />
             <div className="banner">
                 <video autoPlay muted loop>
-                    <source src={VideoBanner} type="video/mp4" />
+                    <source src={presentation2} type="video/mp4" />
                     Tu navegador no soporta la reproducción de videos.
                 </video>
                 <div className="welcome-message">
-                    <h1>Bienvenido a Bicicletas Java</h1>
+                    <h1>Siente la velocidad, domina el camino</h1>
                 </div>
             </div>
             <div className="about-section">
@@ -158,7 +158,7 @@ const Home = () => {
                     <a className="boton-contacto">Contactanos</a>
                 </div>
             </div>
-            <Footer/>
+            <Footer />
         </div>
     );
 };
