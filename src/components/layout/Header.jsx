@@ -15,7 +15,7 @@ const Header = () => {
                         <Link to={routes.bicicletas}>Bicicletas</Link>
                         <Link  to={routes.nosotros}>Nosotros</Link>
                         <Link  to={routes.contacto}>Contacto</Link>
-                        <a href="#">Faq</a>
+                        <Link  to={routes.faq}>FAQ</Link>
                     </div>
                     <div>
                         <a href="#"><img src={cart} width={24} /></a>

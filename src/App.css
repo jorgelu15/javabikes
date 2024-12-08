@@ -513,8 +513,9 @@ header .navbar-nav nav div a:hover {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  max-width: 600px;
-  margin: 40px auto;
+  max-width: 100%;
+  width: 100%;
+  margin: 40px 0;
 }
 
 .btn {
@@ -535,4 +536,11 @@ header .navbar-nav nav div a:hover {
   outline: none;
   border: none;
   resize: none;
+}
+
+.info-contact {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  margin: 40px auto;
 }
