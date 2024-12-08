@@ -1,5 +1,6 @@
 import Header from "../components/layout/Header";
 import presentation2 from "../assets/presentation2.mp4";
+import presentation from "../assets/presentation.mp4";
 import bici1 from "./../assets/bici1.png";
 import Accordion from '@mui/material/Accordion';
 import AccordionActions from '@mui/material/AccordionActions';
@@ -39,9 +40,13 @@ const Home = () => {
                     </p>
                 </div>
                 <div className="features-box">
-                    <p>Calidad y diseño con meticulosidad y cuidado para crear modelos únicos y atractivos</p>
+                    {/* <p>Calidad y diseño con meticulosidad y cuidado para crear modelos únicos y atractivos</p>
                     <p>Sostenibilidad y el respeto por el medio ambiente</p>
-                    <p>Los diseñadores se inspiran en la naturaleza y el arte</p>
+                    <p>Los diseñadores se inspiran en la naturaleza y el arte</p> */}
+                    <video autoPlay muted loop>
+                        <source src={presentation} type="video/mp4" />
+                        Tu navegador no soporta la reproducción de videos.
+                    </video>
                 </div>
             </div>
             <div className="slider">
