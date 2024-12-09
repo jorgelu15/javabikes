@@ -13,8 +13,62 @@ import iconoItalia from "../assets/icon-italia.png";
 import iconoEnviosNacionales1 from "../assets/icono-envios-nacionales-1.png";
 import iconoEnviosRapidos1 from "../assets/icono-envios-rapidos-1.png";
 import Footer from "../components/layout/Footer";
+import prev from "../assets/prev.png";
+import next from "../assets/next.png";
+import { useState } from "react";
 
 const Home = () => {
+    const bikes = [
+        {
+            id: 1,
+            name: "JAVA Siluro 6 Top Up",
+            image: bici1
+        },
+        {
+            id: 2,
+            name: "JAVA Fuoco Top",
+            image: bici1
+        },
+        {
+            id: 3,
+            name: "JAVA SILURO 3D",
+            image: bici1
+        },
+        {
+            id: 4,
+            name: "JAVA Siluro 6 Top",
+            image: bici1
+        },
+        {
+            id: 5,
+            name: "JAVA SILURO 3D",
+            image: bici1
+        },
+        {
+            id: 6,
+            name: "JAVA Siluro 6 Top",
+            image: bici1
+        }
+    ]
+    const [currentTranslate, setCurrentTranslate] = useState(0);
+    const gap = 20;
+    const cardWidth = 400; // Ancho de la tarjeta sin el gap
+    const maxTranslate = -(bikes?.length - 3) * (cardWidth + gap);
+    const handlePrev = () => {
+        setCurrentTranslate((prev) => {
+            const nextTranslate = prev + (cardWidth + gap);
+            return Math.min(nextTranslate, 0); // Evita desplazarse más allá del inicio
+        });
+    };
+
+    const handleNext = () => {
+        setCurrentTranslate((prev) => {
+            const nextTranslate = prev - (cardWidth + gap);
+            return Math.max(nextTranslate, maxTranslate); // Evita desplazarse más allá del final
+        });
+    };
+
+
     return (
         <div style={{ maxWidth: "100%", width: "100%" }}>
             <Header />
@@ -49,110 +103,73 @@ const Home = () => {
                     </video>
                 </div>
             </div>
-            <div className="slider">
-                <p style={{ textAlign: "center" }}>Bicicletas de Ruta en Carbono</p>
-                <div style={{ marginBottom: 40 }}>
-                    <div className="slides">
-                        <div style={{ maxWidth: "40%", display: "flex", flexDirection: "column", justifyContent: "center" }}>
-                            <Accordion sx={{ backgroundColor: "#5E64633D", color: "#fff", boxShadow: "none" }} defaultExpanded>
-                                <AccordionSummary
-                                    expandIcon={<ExpandMoreIcon />}
-                                    aria-controls="panel1-content"
-                                    id="panel1-header"
-                                >
-                                    Caracteristicas
-                                </AccordionSummary>
-                                <AccordionDetails>
-                                    <ul style={{ margin: 20 }}>
-                                        <li>Peso: 11kg</li>
-                                        <li>Tenedor: Carbono</li>
-                                        <li>Tipo de marco: Aerodinamico de aluminio - Aprobado por la UCI - Cableado Totalmente Interno</li>
-                                        <li>Tamaño de las Llantas: 700C - con eje pasante E-thru</li>
-                                        <li>Frenos: Hidraúlicos L-two</li>
-                                        <li>Grupo: Cambiador, descarrilador y tensor Shimano 105 7120 de 12 velocidades</li>
-                                        <li>Manubrio: Integrado, DECAF, Aleación, 31.8*420</li>
-                                        <li>Tamaño del Marco: 450 (XS), 480 (S), 500 (M), 520 (L)</li>
-                                    </ul>
-                                </AccordionDetails>
-                            </Accordion>
-                            <Accordion sx={{ backgroundColor: "#5E64633D", color: "#fff", boxShadow: "none" }} defaultExpanded>
-                                <AccordionSummary
-                                    expandIcon={<ExpandMoreIcon />}
-                                    aria-controls="panel2-content"
-                                    id="panel2-header"
-                                >
-                                    Dimensiones
-                                </AccordionSummary>
-                                <AccordionDetails>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-                                    malesuada lacus ex, sit amet blandit leo lobortis eget.
-                                </AccordionDetails>
-                            </Accordion>
-                            <Accordion sx={{ backgroundColor: "#5E64633D", color: "#fff", boxShadow: "none" }} defaultExpanded >
-                                <AccordionSummary
-                                    expandIcon={<ExpandMoreIcon />}
-                                    aria-controls="panel3-content"
-                                    id="panel3-header"
-                                >
-                                    Precio
-                                </AccordionSummary>
-                                <AccordionDetails>
-                                    Antes 4.990.000 Ahora $4.590.000
-                                </AccordionDetails>
-                                <AccordionActions>
-                                    <Button>Ver mas</Button>
-                                    <Button>Agregar al carrito</Button>
-                                </AccordionActions>
-                            </Accordion>
+            <div className="slider" style={{margin: "200px auto"}}>
+                <p  className="title">Bicicletas de Ruta en Carbono</p>
+                <div className="slides">
+                    <div>
+                        <h1>JAVA Siluro 6 Top Up</h1>
+                        <p>Sálgase de lo común, monte una bicicleta de diseño Italiano...</p>
+                        <div className="price-info">
+                            <p>Precio:</p>
+                            <p>
+                                Antes: <span className="old-price">$ 8,990,000</span>
+                                Ahora <span className="new-price">$ 7,990,000</span>
+                            </p>
                         </div>
-                        <div>
-                            <img src={bici1} width={800} />
+                        <div className="color-options">
+                            <p>Color:</p>
+                            <div>
+                                <span style={{ backgroundColor: "yellow" }}></span>
+                                <span style={{ backgroundColor: "red" }}></span>
+                                <span style={{ backgroundColor: "blue" }}></span>
+                            </div>
                         </div>
+                        <div className="buttons">
+                            <div>Añadir al carrito</div>
+                            <div>Ver más</div>
+                        </div>
+                    </div>
+                    <div>
+                        <img src={bici1} alt="Bicicleta" />
                     </div>
                 </div>
             </div>
-            <div className="wrapper">
+
+            <div className="wrapper" style={{ margin: "100px auto 100px auto", overflow: "hidden" }}>
                 <p style={{ textAlign: "center", fontSize: 58 }}>Nuestro Stock</p>
-                <div class="products">
-                    <div class="card">
-                        <h2>Fuoco</h2>
-                        <img src={bici1} alt="Fuoco" />
+                <div>
+                    <button onClick={handlePrev} className="slider-button prev"><img src={prev} /></button>
+                    <div className="products" style={{
+                        transform: `translateX(${currentTranslate}px)`,
+                        transition: "transform 0.5s ease-in-out",
+                    }}>
+                        {bikes?.map((_, index) => (
+                            <div className="card" key={index}>
+                                <img src={_.image} alt="Fuoco" />
+                                <div>
+                                    <h2>{_.name}</h2>
+                                    <p>Antes $ 8,990,000 Ahora $ 7,990,000</p>
+                                </div>
+                            </div>
+                        ))}
+
                     </div>
-                    <div class="card">
-                        <h2>Fuoco</h2>
-                        <img src={bici1} alt="Fuoco" />
-                    </div>
-                    <div class="card">
-                        <h2>Fuoco</h2>
-                        <img src={bici1} alt="Fuoco" />
-                    </div>
-                    <div class="card">
-                        <h2>Vesuvio</h2>
-                        <img src={bici1} alt="Vesuvio" />
-                    </div>
-                    <div class="card">
-                        <h2>Vesuvio</h2>
-                        <img src={bici1} alt="Vesuvio" />
-                    </div>
-                    <div class="card">
-                        <h2>Vesuvio</h2>
-                        <img src={bici1} alt="Vesuvio" />
-                    </div>
+                    <button onClick={handleNext} disabled={currentTranslate === maxTranslate} className="slider-button next"><img src={next} /></button>
                 </div>
             </div>
             <div className="wrapper">
                 <div className="portada" style={{ backgroundImage: `url(${portada})` }}>
-                    <div class="card-portada ">
+                    <div className="card-portada ">
                         <img src={iconoItalia} alt="Diseño italiano" />
                         <p>
                             El diseño de las bicicletas Java es otro elemento distintivo. Los diseñadores se inspiran en la naturaleza y el arte para crear modelos únicos y atractivos. Cada bicicleta está cuidadosamente elaborada para ofrecer un equilibrio perfecto entre estilo y funcionalidad, brindando una experiencia de conducción excepcional.
                         </p>
                     </div>
-                    <div class="card-portada ">
+                    <div className="card-portada ">
                         <img src={iconoEnviosNacionales1} alt="Entregas nacionales" />
                         <p>Realizamos entregas de tu bici a todo el territorio nacional</p>
                     </div>
-                    <div class="card-portada ">
+                    <div className="card-portada ">
                         <img src={iconoEnviosRapidos1} alt="Altos estándares de calidad" />
                         <p>Tenemos los estándares de calidad más altos en cuanto a envíos seguros y rápidos</p>
                     </div>
